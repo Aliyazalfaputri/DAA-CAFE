@@ -1,0 +1,181 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Lenovo"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2022-10-19 01.30.37 PM"/>
+        <attribute name="created" value="TGVub3ZvO0FMSVlBWkFMRkFQVVRSSTsyMDIyLTEwLTE3OzAyLjEwLjMyIFBNOzMwMDg="/>
+        <attribute name="edited" value="TGVub3ZvO0FMSVlBWkFMRkFQVVRSSTsyMDIyLTEwLTE5OzAxLjMwLjM3IFBNOzEyOzMxNzQ="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="nama" type="String" array="False" size=""/>
+            <output expression="&quot;=======================================&quot;" newline="True"/>
+            <output expression="&quot;||   Selamat Datang di DAA Cafe   ||&quot;" newline="True"/>
+            <output expression="&quot;=======================================&quot;" newline="True"/>
+            <output expression="&quot;Pesanan atas nama :  &quot;" newline="True"/>
+            <input variable="nama"/>
+            <output expression="&quot; &quot;" newline="True"/>
+            <call expression="list"/>
+            <declare name="menu, uang, kembalian" type="Integer" array="False" size=""/>
+            <declare name="pilih, Jumlah, Jumlah1, price" type="Integer" array="True" size="10"/>
+            <declare name="menumakanan" type="String" array="True" size="6"/>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <assign variable="i" expression="0"/>
+            <declare name="Total" type="Integer" array="False" size=""/>
+            <assign variable="Total" expression="0"/>
+            <declare name="selesai" type="Boolean" array="False" size=""/>
+            <assign variable="selesai" expression="false"/>
+            <while expression="selesai==false">
+                <output expression="&quot;Silahkan pilih menu yang mau anda pesan : &quot;" newline="False"/>
+                <input variable="pilih[i]"/>
+                <if expression="pilih[i]&lt;=6">
+                    <then>
+                        <if expression="pilih[i]==0">
+                            <then>
+                                <output expression="&quot;Jumlah Porsi &quot;" newline="False"/>
+                                <input variable="Jumlah[i]"/>
+                                <output expression="&quot; &quot;" newline="True"/>
+                                <assign variable="Jumlah1[i]" expression="Jumlah[i]*price[i]"/>
+                                <assign variable="Total" expression="Total+Jumlah1[i]"/>
+                                <assign variable="i" expression="i+1"/>
+                            </then>
+                            <else>
+                                <if expression="pilih[i]==1">
+                                    <then>
+                                        <assign variable="menumakanan[i]" expression="&quot;Kentang Goreng      &quot;"/>
+                                        <assign variable="price[i]" expression="10000"/>
+                                    </then>
+                                    <else>
+                                        <if expression="pilih[i]==2">
+                                            <then>
+                                                <assign variable="menumakanan[i]" expression="&quot;Burger              &quot;"/>
+                                                <assign variable="price[i]" expression="13000"/>
+                                            </then>
+                                            <else>
+                                                <if expression="pilih[i]==3">
+                                                    <then>
+                                                        <assign variable="menumakanan[i]" expression="&quot;Spaghetti Bolognese &quot;"/>
+                                                        <assign variable="price[i]" expression="12000"/>
+                                                    </then>
+                                                    <else>
+                                                        <if expression="pilih[i]==4">
+                                                            <then>
+                                                                <assign variable="menumakanan[i]" expression="&quot;Corn Dog            &quot;"/>
+                                                                <assign variable="price[i]" expression="10000"/>
+                                                            </then>
+                                                            <else>
+                                                                <if expression="pilih[i]==5">
+                                                                    <then>
+                                                                        <assign variable="menumakanan[i]" expression="&quot;Es Jeruk            &quot;"/>
+                                                                        <assign variable="price[i]" expression="5000"/>
+                                                                    </then>
+                                                                    <else>
+                                                                        <if expression="pilih[i]==6">
+                                                                            <then>
+                                                                                <assign variable="menumakanan[i]" expression="&quot;Oreo Milkshake&#9;  &quot;"/>
+                                                                                <assign variable="price[i]" expression="7000"/>
+                                                                            </then>
+                                                                            <else>
+                                                                                <assign variable="menumakanan[i]" expression="&quot;&quot;"/>
+                                                                                <assign variable="price[i]" expression="0"/>
+                                                                            </else>
+                                                                        </if>
+                                                                    </else>
+                                                                </if>
+                                                            </else>
+                                                        </if>
+                                                    </else>
+                                                </if>
+                                            </else>
+                                        </if>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                    </then>
+                    <else>
+                        <output expression="&quot;Maaf menu yang dipilih tidak tersedia&quot;" newline="True"/>
+                    </else>
+                </if>
+                <output expression="&quot;Jumlah Porsi &quot;" newline="False"/>
+                <output expression="menumakanan[i]" newline="False"/>
+                <output expression="&quot; : &quot;" newline="True"/>
+                <input variable="Jumlah[i]"/>
+                <output expression="&quot; : &quot;" newline="True"/>
+                <assign variable="Jumlah1[i]" expression="Jumlah[i]*price[i]"/>
+                <assign variable="Total" expression="Total+Jumlah1[i]"/>
+                <assign variable="i" expression="i+1"/>
+            </while>
+            <output expression="&quot; &quot;" newline="True"/>
+            <output expression="&quot;           &#9;              BILL PEMBELIAN &#9;&#9;     &#9;&#9;&#9;&#9; &quot;" newline="True"/>
+            <output expression="&quot;----------------------------------------------------------------------&quot;" newline="True"/>
+            <output expression="&quot;No&#9;Nama Menu    &#9;  &#9;Harga&#9;&#9;Jumlah        Total &quot;" newline="True"/>
+            <output expression="&quot;----------------------------------------------------------------------&quot;" newline="True"/>
+            <declare name="a" type="Integer" array="False" size=""/>
+            <for variable="a" start="0" end="i" direction="inc" step="1">
+                <output expression="a+1" newline="False"/>
+                <output expression="&quot; &quot;" newline="False"/>
+                <output expression="menumakanan[a]" newline="False"/>
+                <output expression="&quot; &quot;" newline="False"/>
+                <output expression="price[a]" newline="False"/>
+                <output expression="&quot; &quot;" newline="False"/>
+                <output expression="Jumlah[a]" newline="False"/>
+                <output expression="&quot; &quot;" newline="False"/>
+                <output expression="Jumlah1[a]" newline="True"/>
+            </for>
+            <output expression="&quot;----------------------------------------------------------------------&quot;" newline="True"/>
+            <output expression="&quot;Total Bayar = Rp &quot;" newline="False"/>
+            <output expression="Total" newline="True"/>
+            <while expression="uang&lt;Total">
+                <output expression="&quot;Masukkan uang Anda : Rp &quot;" newline="True"/>
+                <input variable="uang"/>
+                <if expression="uang &gt;= Total">
+                    <then>
+                        <assign variable="kembalian" expression="uang - Total"/>
+                        <output expression="&quot;-----------------------------------&quot;" newline="True"/>
+                        <output expression="&quot;Kembalian Anda     : Rp &quot;" newline="False"/>
+                        <output expression="kembalian" newline="True"/>
+                        <output expression="&quot; &quot;" newline="True"/>
+                        <output expression="&quot;Terima Kasih, Orderan anda kami terima ^_^&quot;" newline="True"/>
+                        <output expression="&quot;-------------------------------------------&quot;" newline="True"/>
+                        <output expression="&quot; &quot;" newline="True"/>
+                    </then>
+                    <else>
+                        <output expression="&quot;Maaf, Uang Anda tidak cukup&quot;" newline="True"/>
+                    </else>
+                </if>
+            </while>
+        </body>
+    </function>
+    <function name="List" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="menumakanan" type="String" array="True" size="6"/>
+            <assign variable="menumakanan[0]" expression="&quot;Kentang Goreng&quot;"/>
+            <assign variable="menumakanan[1]" expression="&quot;Burger&quot;"/>
+            <assign variable="menumakanan[2]" expression="&quot;Spaghetti bolognese&quot;"/>
+            <assign variable="menumakanan[3]" expression="&quot;Corn Dog&quot;"/>
+            <assign variable="menumakanan[4]" expression="&quot;Es Jeruk&quot;"/>
+            <assign variable="menumakanan[5]" expression="&quot;Oreo Milkshake&quot;"/>
+            <output expression="&quot;Berikut pilihan menu makanan yang tersedia di DAA Cafe : &quot;" newline="True"/>
+            <output expression="&quot;----------------------------------------------&quot;" newline="True"/>
+            <output expression="&quot;1. &quot;" newline="False"/>
+            <output expression="menumakanan[0]" newline="True"/>
+            <output expression="&quot;2. &quot;" newline="False"/>
+            <output expression="menumakanan[1]" newline="True"/>
+            <output expression="&quot;3. &quot;" newline="False"/>
+            <output expression="menumakanan[2]" newline="True"/>
+            <output expression="&quot;4. &quot;" newline="False"/>
+            <output expression="menumakanan[3]" newline="True"/>
+            <output expression="&quot;5. &quot;" newline="False"/>
+            <output expression="menumakanan[4]" newline="True"/>
+            <output expression="&quot;6. &quot;" newline="False"/>
+            <output expression="menumakanan[5]" newline="True"/>
+            <output expression="&quot;----------------------------------------------&quot;" newline="True"/>
+            <output expression="&quot;Ketik 0 jika selesai melakukan pemesanan&quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
